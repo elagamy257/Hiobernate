@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-configuration [
+        <!ELEMENT hibernate-configuration (session-factory)*>
+        <!ELEMENT session-factory (property)*>
+        <!ELEMENT property (#PCDATA)>
+        <!ATTLIST property
+                name CDATA #REQUIRED>
+        ]>
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate-app</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">password</property>
+
+		<!-- create -->
+		<!-- update -->
+		<!-- create-drop -->
+		<property name="hbm2ddl.auto">update</property> 
+		
+        <!--Settings (pool)-->
+        <property name="connection.pool_size">1</property>
+
+        <!-- dialect SQL -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- show sql query -->
+        <property name="show_sql">true</property>
+
+        <property name="format_sql">true</property>
+
+	<!-- current session  -->
+	<property name="current_session_context_class">thread</property>
+ 
+    </session-factory>
+
+</hibernate-configuration>
